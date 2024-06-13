@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- page link -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="">
+    <title>AB_SECURITY</title>
+</head>
+<body class="ba">
+    <div class="navbar">
+        <div class="logo">
+           <img src="https://i.pinimg.com/564x/8b/66/cc/8b66ccbb8b6226847404d8dd4a8d687b.jpg" alt="">
+        </div>
+
+        <div class="nav">
+            <h1>AB_SECURITY</h1>
+
+
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div class="info">
+            <div class="input">
+            <h1>SECURITY - RAMLAL MANIKCHAND YADAV</h1>
+            <h2>BUILDING - TARANGANA</h2>
+            <h2>GATE NO - 1</h2>
+            <div class="but">
+            <button popovertarget="open-pop">ADD VISITOR</button>
+        </div>
+        </div>
+        </div>
+        
+        <!-- <div class="info1">
+            <img class="img1"  src="assets/remove.jpg" alt="">
+            
+        </div> -->
+
+
+        
+    </div>
+
+
+
+    <div class="main1" id="open-pop" popover >
+        <div class="card">
+            <div class="delivery">
+                <h3>VISITOR INFO</h3>
+                
+                <th><input type="text" name="name" id="name" placeholder="NAME"></th>
+                <th><input type="text" name="phone" id="phone" placeholder="PHONE"></th>
+                <th><input type="text" name="v" id="purpose" placeholder="PURPOSE"></th>
+                <th><input type="text" name="place" id="place" placeholder="PLACE"></th>
+                <th><button class="bttt" onclick="take_picture()" id="snap">Click picture</button>
+                    
+                </div>
+                
+                <button class="btt" value="SUBMIT" onclick="add()"  popovertarget="open-pop" popovertargetaction="open-pop">SUBMIT</button>
+                
+            </div>
+            
+      
+
+    </div>
+
+    <div class="container">
+        <th><video id="video" width="100px" height="100px" autoplay></video></th>
+        <th><canvas id="canvas" width="30px" height="30px" ></canvas></th>
+    </div>
+
+    
+
+    <div class="data">
+        <div class="res">
+
+            <table border="2" id="show" style="width: 1460px;">
+                <thead >
+                    <tr>
+                        <th>canvas</th>
+                        <th>NAME</th>
+                        <th>PHONE</th>
+                        <th>PURPOSE</th>
+                        <th>PLACE</th>
+                        <th>RESULT</th>
+
+                    </tr>
+                </thead>
+                <!-- <tbody>
+                </tbody> -->
+            </table>
+        </div>
+        </div>
+
+
+
+
+
+
+       
+    <script> 
+    function add(){
+        // var canvas=document.getElementById("canvas").value
+        var name=document.getElementById("name").value
+        var phone=document.getElementById("phone").value
+        var purpose=document.getElementById("purpose").value
+        var place=document.getElementById("place").value
+        var result=document.getElementById("snap").value
+
+        var table=document.getElementById("show")
+        table.innerHTML+=`<tr><td>${canvas}</td><td>${name}</td><td>${phone}</td><td>${purpose}</td><td>${place}</td><td>${snap}</td></tr>`
+       
+    }
+
+
+
+    
+
+    // 
+
+    const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const snapButton = document.getElementById('snap');
+const context = canvas.getContext('2d');
+// table.innerHTML+=`<tr><td>${canvas}</td></tr>`;
+
+
+// Request access to the webcam
+navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+        video.srcObject = stream;
+    })
+    .catch(err => {
+        console.error('Error accessing the webcam: ' + err);
+    });
+
+// Capture photo when the button is clicked
+snapButton.addEventListener('click', () => {
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+   
+    
+            
+});
+// const video = document.getElementById('video');
+//         const canvas = document.getElementById('canvas');
+//         const snapButton = document.getElementById('snap');
+//         const context = canvas.getContext('2d');
+    
+        // Request access to the webcam
+        // navigator.mediaDevices.getUserMedia({ video: true })
+        //     .then(stream => {
+        //         video.srcObject = stream;
+        //     })
+        //     .catch(err => {
+        //         console.error('Error accessing the webcam: ' + err);
+        //     });
+    
+        // // Capture photo when the button is clicked
+        // snapButton.addEventListener('click', () => {
+        //     context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        // });
+    
+        // function add() {
+        //     const name = document.getElementById('name').value;
+        //     const phone = document.getElementById('phone').value;
+        //     const purpose = document.getElementById('purpose').value;
+        //     const place = document.getElementById('place').value;
+    
+        //     const table = document.getElementById('show').getElementsByTagName('tbody')[0];
+        //     const newRow = table.insertRow();
+    
+        //     const imgCell = newRow.insertCell(0);
+        //     const nameCell = newRow.insertCell(1);
+        //     const phoneCell = newRow.insertCell(2);
+        //     const purposeCell = newRow.insertCell(3);
+        //     const placeCell = newRow.insertCell(4);
+    
+        //     const img = new Image();
+        //     img.src = canvas.toDataURL();
+        //     img.width = 100; // Set a reasonable width for the thumbnail
+        //     imgCell.appendChild(img);
+    
+        //     nameCell.textContent = name;
+        //     phoneCell.textContent = phone;
+        //     purposeCell.textContent = purpose;
+        //     placeCell.textContent = place;
+        // }
+
+
+
+
+
+    
+    
+   
+        
+    
+
+
+    </script>
+
+
+    
+</body>
+</html>
